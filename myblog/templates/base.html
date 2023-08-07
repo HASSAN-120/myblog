@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>GMP CALL</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 0;
+        }
+        .shadow {
+            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+        }
+        .btn-danger {
+            color: #fff;
+            background-color: #f00000;
+            border-color: #dc281e;
+        }
+        .masthead {
+            background: #3398E1;
+            height: auto;
+            padding-bottom: 15px;
+            box-shadow: 0 16px 48px #E3E7EB;
+            padding-top: 10px;
+        }
+
+        /* Apply styles to the footer */
+        footer {
+            padding: 20px 0;
+            background-color: gray;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Style the heading */
+        footer h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Style the strong tags */
+        footer strong {
+        }
+
+        /* Add some spacing between paragraphs */
+        footer p {
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        footer p:hover {
+            color: blue;
+            cursor: pointer;
+        }
+
+        /* Add a border at the bottom of the footer */
+        footer {
+            border-top: 1px solid #ddd;
+        }
+
+        /* Apply different styles to the last paragraph (Copyright) */
+        footer p:last-child {
+            font-size: 14px;
+        }
+
+        /* Add a hover effect to the footer links (optional) */
+        footer a:hover {
+        }
+
+        .navbar {
+            position: fixed; /* Make the navbar fixed to the top */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent; /* Make the navbar transparent */
+            box-shadow: none;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: #cb6ce6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ffcc00;
+            text-shadow: 3px 3px 6px rgba(255, 204, 0, 0.3);
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: url("{% static 'PICS/gmpcall.png' %}") top center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero:before {
+            content: "";
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .hero .hero-container {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .hero h3 {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 26px;
+            padding: 10px 30px;
+            margin-bottom: 30px;
+            border-radius: 50px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px 0;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .hero h2 {
+            color: #eee;
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+
+        .hero .btn-get-started {
+            font-family: "Poppins", sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 15px;
+            font-weight: bolder;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 8px 30px 9px 30px;
+            border-radius: 50px;
+            transition: 0.5s;
+            border: 2px solid #fff;
+            color: #0097B2;
+        }
+
+        .hero .btn-get-started:hover {
+            background: white;
+            border: 2px solid #0097B2;
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                background-attachment: fixed;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h3 {
+                font-size: 22px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+                line-height: 24px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-height: 500px) {
+            #hero {
+                height: 150vh;
+            }
+        }
+        .logo-img {
+            max-width: 100px; /* Adjust the maximum width to your preference */
+        }
+        @media (max-width: 768px) {
+        .logo-img {
+            max-width: 80px; /* Adjust the maximum width for smaller screens */
+        }
+        }
+        .nav-item {
+            border-bottom: 3px solid cyan;
+            border-radius: 10px;
+            background: transparent;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 20px;
+            transition: border-right 2s;
+            transition: border-top 4s;
+            transition: border-left 6s;
+            transition: box-shadow 3s;
+        }
+        .nav-item:hover {
+            border-bottom: 2px solid cyan;
+            border-right: 2px solid cyan;
+            border-top: 2px solid cyan;
+            border-left: 2px solid cyan;
+            border-radius: 10px;
+            background: transparent;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 20px;
+            box-shadow: 2px 2px 5px cyan;
+        }
+        .nav-item a {
+            color: white;
+            font-style: bold;
+            font-size: 20px;
+        }
+        .social-icon {
+            margin: 50px;
+            font-size: 30px;
+        }
+
+        .ttl {
+            color:cyan;
+        }
+    </style>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'PICS/logo.png' %}" alt="GMP CALL Logo" class="img-fluid logo-img">
+            </a>
+            <ul>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+<!--
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            -->
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            {% block 'body' %}
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h1 class="text-center mb-4">Welcome to <span class="ttl">GMP CALL</span> space</h1>
+                        <p class="text-center text-light">Where Quality Content Meets Knowledge & Inspiration</p>
+                        <div class="text-center">
+                            <a href="#content-section" class="btn btn-primary btn-lg">Discover</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock 'body' %}
+        </div>
+    </section>
+
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+    <!-- Footer -->
+    <footer class="footer-07 bg-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <h2 class="footer-heading">Follow Us</h2>
+                      <div class="social-icons">
+                        <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/yourhandle" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                      </div>
+                </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright text-light">
+                        Copyright © 2023 All rights reserved to GMPCALL
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script>
+        // JavaScript to hide the navbar on scroll down and show it on scroll up
+        let prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector(".navbar").style.top = "0";
+            } else {
+                document.querySelector(".navbar").style.top = "-100px";
+            }
+            prevScrollpos = currentScrollPos;
+        };
+
+        // JavaScript to close the navbar collapse when a link is clicked (for mobile view)
+        document.querySelectorAll('.nav-link').forEach(function(elem) {
+            elem.addEventListener('click', function() {
+                document.querySelector('.navbar-toggler').click();
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+6PODl/4w3Z5w+gxnZ+Lez9Ls5G8J2A1ZdjTR8aMCy8AWEj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %} <!-- Load static tag to use CSS file -->
+{% block body %}
+
+{% endblock body %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .header-text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+    .left {
+        margin-top: 3rem;
+    }
+
+    /* New styles to display cards horizontally */
+    .card-deck .card {
+        flex: 1 0 300px;
+        margin: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .card-deck {
+            flex-direction: column;
+        }
+
+        .card-deck .card {
+            flex: 100%;
+        }
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+    /* Fix height of card body for consistent size */
+    .card-body {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .posts_header {
+        color: blue;
+    }
+</style>
+
+<div class="container" id="content-section">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            <h1 class="posts_header">Posts</h1>
+            <div class="card-deck">
+                {% for post in post_list %}
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
+                        <p class="card-text">{{ post.content|slice:":200" }}...</p>
+                        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-success">Read More &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% block sidebar %}
+            {% include 'sidebar.html' %}
+        {% endblock sidebar %}
+    </div>
+</div>
+{% endblock %}
